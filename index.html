@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</rendem color generator </title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+
+            #container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                height: 100vh;
+            }
+            .mane {
+                padding: 15px;
+                max-width: 75%;
+                background-color: whitesmoke;
+                text-align: center;
+                font-size: 38px;
+                border-radius: 10px;
+            }
+            .mane button {
+                background-color: darkblue;
+                color: snow;
+                padding: 10px 60px;
+                font-size: 18px;
+                text-transform: capitalize;
+                border-radius: 10px;
+            }
+        </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="mane">
+            <p class="colorCode"> #fff</p>
+            <button id="colorGenerator" onclick="generateRandomHexColor() ">get rendem color </button>
+        </div>
+    </div>
+<script>
+    function generateRandomHexColor() {
+            // Generate a random number between 0 and 16777215 (corresponding to the range of hexadecimal color codes)
+            const randomColorNumber = Math.floor(Math.random() * 16777216);
+
+            // Convert the random number to a hexadecimal string and pad with zeros to ensure it's always 6 digits
+            const hexColor = '#' + randomColorNumber.toString(16).padStart(6, '0');
+
+            // Set the background color of the body
+            document.body.style.backgroundColor = hexColor;
+
+            // Update the color code display
+            document.querySelector(".colorCode").innerHTML = hexColor;
+            navigator.clipboard.writeText(hexColor);
+            
+
+            }
+
+        // Call the function to generate and set the random color
+        generateRandomHexColor();
+
+</script>
+</body>
+
+</html> 
